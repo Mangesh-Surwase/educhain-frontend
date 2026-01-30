@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api';
+// 🔥🔥🔥 CHANGED: Connected to Live Render Backend 🔥🔥🔥
+const API_URL = 'https://educhain-backend-7cv0.onrender.com/api';
 
 const api = axios.create({
     baseURL: API_URL,
@@ -21,7 +22,7 @@ export const registerUser = async (userData) => { return await axios.post(`${API
 export const loginUser = async (loginData) => { return await axios.post(`${API_URL}/auth/login`, loginData); };
 export const verifyOtp = async (email, otp) => { return await axios.post(`${API_URL}/auth/verify-otp?email=${email}&otp=${otp}`); };
 
-// 🔥🔥🔥 NEW: FORGOT PASSWORD APIS 🔥🔥🔥
+// --- FORGOT PASSWORD APIS ---
 export const forgotPassword = async (email) => { return await axios.post(`${API_URL}/auth/forgot-password?email=${email}`); };
 export const resetPassword = async (data) => { return await axios.post(`${API_URL}/auth/reset-password`, data); };
 
